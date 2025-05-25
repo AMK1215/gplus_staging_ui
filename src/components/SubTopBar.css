@@ -1,0 +1,81 @@
+.subtopbar-outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0.7rem 0 2.2rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.subtopbar-outer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.subtopbar {
+  background: #181818;
+  border-radius: 18px;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  width: max-content;
+  min-width: 100%;
+  max-width: 1200px;
+}
+
+.subtopbar-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.13rem;
+  font-weight: 500;
+  padding: 0.5rem 1.3rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+  margin: 0 0.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.subtopbar-btn.active,
+.subtopbar-btn.logs-btn {
+  background: linear-gradient(90deg, #ffd700 0%, #ffea70 100%);
+  color: #222;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.10);
+}
+
+.subtopbar-btn.logs-btn {
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.13rem;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+.subtopbar-btn:not(.active):hover,
+.subtopbar-btn.logs-btn:hover {
+  background: #ffd70033;
+  color: #ffd700;
+}
+
+@media (max-width: 900px) {
+  .subtopbar {
+    max-width: 100vw;
+    gap: 0.5rem;
+    padding: 0.5rem 0.2rem;
+  }
+  .subtopbar-btn {
+    font-size: 1rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .subtopbar-btn.logs-btn {
+    margin-left: 0.7rem;
+  }
+} 

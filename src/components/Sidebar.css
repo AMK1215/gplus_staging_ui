@@ -1,0 +1,108 @@
+.sidebar-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 2000;
+  display: none;
+}
+.sidebar-overlay.open {
+  display: block;
+}
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 320px;
+  height: 100vh;
+  background: #111;
+  color: #fff;
+  box-shadow: 2px 0 16px rgba(0,0,0,0.18);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 2100;
+  animation: sidebarIn 0.25s;
+}
+@keyframes sidebarIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.sidebar-logo {
+  height: 38px;
+}
+.sidebar-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.sidebar-lang {
+  background: #181818;
+  color: #ffd700;
+  border: 1.5px solid #ffd700;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.4rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.sidebar-lang img {
+  width: 28px;
+  height: 20px;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+.sidebar-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.sidebar-link {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.13rem;
+  font-weight: 500;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.sidebar-link.active,
+.sidebar-link:hover {
+  background: #232124;
+  color: #ffd700;
+}
+.sidebar-logout {
+  background: linear-gradient(90deg, #ffd700 0%, #ffea70 100%);
+  color: #222;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 18px;
+  padding: 0.7rem 0;
+  margin-top: 2rem;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.10);
+  transition: background 0.2s, color 0.2s;
+}
+.sidebar-logout:hover {
+  background: #ffd700;
+  color: #181818;
+} 

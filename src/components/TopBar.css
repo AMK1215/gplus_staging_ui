@@ -1,0 +1,86 @@
+.topbar {
+  background: #111;
+  color: #fff;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  min-height: 64px;
+}
+
+.topbar-logo {
+  height: 48px;
+  width: auto;
+  margin-right: 16px;
+}
+
+.balance-box {
+  background: #222;
+  color: #ffc107;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.welcome-text {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.btn-outline-warning, .btn-warning {
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 4px 18px;
+  font-size: 0.95rem;
+}
+
+.btn-outline-warning {
+  border: 1.5px solid #ffc107;
+  color: #ffc107;
+  background: transparent;
+}
+
+.btn-outline-warning:hover {
+  background: #ffc107;
+  color: #222;
+}
+
+.btn-warning {
+  background: linear-gradient(90deg, #ffd700 0%, #ffc107 100%);
+  color: #222;
+  border: none;
+}
+
+.btn-warning:hover {
+  background: #ffc107;
+  color: #222;
+}
+
+.topbar .fa-bell, .topbar .fa-bars, .topbar .fa-user {
+  font-size: 1.1rem;
+}
+
+.hamburger-menu-btn {
+  background: linear-gradient(90deg, #ffd700 0%, #ffea70 100%);
+  color: #222;
+  border: none;
+  border-radius: 12px;
+  padding: 7px 16px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.10);
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.hamburger-menu-btn:hover {
+  background: #ffd700;
+  color: #181818;
+}
+.hamburger-menu-btn i {
+  color: #222;
+  font-size: 1.3rem;
+} 

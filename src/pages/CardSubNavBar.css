@@ -1,0 +1,56 @@
+.card-subnav-outer {
+  margin: 1.5rem 0 2rem 0;
+}
+.card-subnav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.card-subnav-tab {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.08rem;
+  font-weight: 600;
+  padding: 0.5rem 1.3rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.card-subnav-tab.active {
+  background: linear-gradient(90deg, #ffd700 0%, #ffea70 100%);
+  color: #222;
+  font-weight: 700;
+}
+.card-subnav-search {
+  margin-left: 2rem;
+  background: #232124;
+  border: 1.5px solid #ffd700;
+  border-radius: 8px;
+  color: #ffd700;
+  font-size: 1.08rem;
+  padding: 0.5rem 1.2rem;
+  outline: none;
+  width: 220px;
+}
+.card-subnav-providers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.card-subnav-provider {
+  background: #232124;
+  color: #ffd700;
+  border: 1.5px solid #ffd700;
+  border-radius: 18px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  padding: 0.4rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.card-subnav-provider:hover {
+  background: #ffd700;
+  color: #232124;
+} 

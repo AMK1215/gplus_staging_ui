@@ -1,0 +1,108 @@
+import React, { useEffect, useState } from 'react';
+import useFetch from '../hooks/useFetch';
+import BASE_URL from '../hooks/baseURL';
+import './CardGame.css';
+
+const CardGame = ({ selectedProvider, gameType }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  // Add console logs to debug the API call
+  console.log('Selected Provider:', selectedProvider);
+  console.log('Game Type:', gameType);
+  
+  const apiUrl = selectedProvider && gameType
+    ? `${BASE_URL}/game_lists/${gameType.id}/${selectedProvider.id}${searchQuery ? `?game_name=${searchQuery}` : ''}`
+    : null;
+    
+  console.log('API URL:', apiUrl);
+  
+  const { data: games, loading, error } = useFetch(apiUrl);
+  
+  console.log('Games Data:', games);
+
+  return (
+    <div className="card-game-container">
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search games..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="game-search-input"
+        />
+      </div>
+
+      {loading && <div className="loading">Loading games...</div>}
+      {error && <div className="error">Failed to load games: {error.message}</div>}
+      
+      {!loading && !error && (!games || games.length === 0) && (
+        <div className="no-games">No games found for this provider</div>
+      )}
+
+      <div className="games-grid">
+        {games?.map((game) => (
+          <div key={game.id} className="game-card">
+            <div className="game-image">
+              <img src={game.image_url} alt={game.game_name} />
+            </div>
+            <div className="game-info">
+              <h3>{game.game_name}</h3>
+              <p className="provider">{game.provider}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default CardGame; 
+-------------------
+import React, { useEffect, useState } from 'react';
+import useFetch from '../hooks/useFetch';
+import BASE_URL from '../hooks/baseURL';
+import './CardSubNavbar.css';
+
+const CardSubNavbar = ({ gameType, onProviderSelect }) => {
+  const [selectedProvider, setSelectedProvider] = useState(null);
+
+  const { data, loading, error } = useFetch(
+    gameType ? `${BASE_URL}/providers/${gameType.code}` : null
+  );
+
+  useEffect(() => {
+    setSelectedProvider(null);
+  }, [data]);
+
+  const handleProviderClick = (provider) => {
+    setSelectedProvider(provider);
+    onProviderSelect(provider);
+  };
+
+  if (!gameType) return null;
+
+  return (
+    <div className="card-subnavbar">
+      {loading && <span style={{ color: '#ffd700' }}>Loading providers...</span>}
+      {error && <span style={{ color: 'red' }}>Failed to load providers</span>}
+      {data?.map((provider) => (
+        <button
+          key={provider.id}
+          className={`provider-btn ${selectedProvider?.id === provider.id ? 'active' : ''}`}
+          onClick={() => handleProviderClick(provider)}
+        >
+          {provider.img_url && (
+            <img
+              src={`https://luckymillion.pro${provider.img_url}`}
+              alt={provider.product_title}
+              className="provider-img"
+            />
+          )}
+          {provider.product_title}
+        </button>
+      ))}
+    </div>
+  );
+};
+
+export default CardSubNavbar; 

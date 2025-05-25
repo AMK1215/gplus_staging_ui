@@ -1,0 +1,16 @@
+.marquee-bar {
+  background: #222;
+  color: #ffc107;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.marquee-bar i {
+  margin-right: 0.5rem;
+} 
