@@ -1,0 +1,16 @@
+[
+    {
+        "id" : 1,
+        "name" : "Golden Empire",
+        "provider_id": 1,
+        "game_type_id": 1,
+        "img_url": "http://localhost:8000/assets/img/1.png" 
+    },
+    {
+        "id" : 2,
+        "name" : "Golden Empire",
+        "provider_id": 1,
+        "game_type_id": 1,
+        "img_url": "http://localhost:8000/assets/img/1.png" 
+    }
+]
