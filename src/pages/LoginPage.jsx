@@ -52,8 +52,8 @@ const LoginPage = () => {
       <form className="auth-card" onSubmit={handleLogin}>
       <div className="auth-logo">
         <img
-    src={process.env.PUBLIC_URL + 'https://gplus-staging-ui.vercel.app/assets/logo-P-jbhPrl.png'}
-    alt="Slot Logo"/>
+    src={process.env.PUBLIC_URL + '../assets/logo/logo.png'}
+    alt="Logo"/>
       </div>
         {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
         <div className="auth-input-group">
