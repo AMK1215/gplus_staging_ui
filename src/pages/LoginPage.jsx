@@ -52,7 +52,7 @@ const LoginPage = () => {
       <form className="auth-card" onSubmit={handleLogin}>
       <div className="auth-logo">
         <img
-    src={process.env.PUBLIC_URL + '../assets/logo/logo.png'}
+   src={'../assets/logo/logo.png'}
     alt="Logo"/>
       </div>
         {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
