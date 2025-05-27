@@ -145,3 +145,27 @@
     width: 60px;
   }
 }
+.auth-link-row {
+  margin-top: 18px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+}
+
+.auth-link-btn {
+  background: none;
+  border: none;
+  color: #FFD700;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.15s;
+}
+.auth-link-btn:hover {
+  color: #ffea80;
+}
+

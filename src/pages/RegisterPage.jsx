@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginRegister.css';
+import logo from '../assets/logo/slot logo.png'; // Use your logo path
 
 const RegisterPage = () => {
   const [phone, setPhone] = useState('');
@@ -17,7 +18,10 @@ const RegisterPage = () => {
 
   return (
     <div className="auth-bg">
-      <form className="auth-card" onSubmit={handleRegister}>
+      <form className="auth-card animated-fade-in" onSubmit={handleRegister}>
+        <div className="auth-logo">
+          <img src={logo} alt="Slot Logo" />
+        </div>
         <h2 className="auth-title">စာရင်းသွင်းရန်</h2>
         <div className="auth-input-group">
           <span className="auth-icon"><i className="fas fa-phone"></i></span>
@@ -89,4 +93,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage; 
+export default RegisterPage;
