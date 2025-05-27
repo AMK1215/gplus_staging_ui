@@ -51,8 +51,11 @@ const LoginPage = () => {
     <div className="auth-bg">
       <form className="auth-card" onSubmit={handleLogin}>
       <div className="auth-logo">
-          <img src="/assets/logo/logo.png" alt="My App Logo" />
+  <img
+    src={process.env.PUBLIC_URL + '/assets/logo/slot-logo.png'}
+    alt="Slot Logo"/>
       </div>
+
         {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
         <div className="auth-input-group">
           <span className="auth-icon"><i className="fas fa-user"></i></span>
