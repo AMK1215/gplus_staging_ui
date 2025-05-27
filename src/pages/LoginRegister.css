@@ -125,3 +125,14 @@
     padding: 1.2rem;
   }
 } 
+.auth-logo {
+  width: 140px;
+  margin: 0 auto 24px;
+}
+.auth-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 768px) { .auth-logo { width: 200px; margin-bottom:32px; } }
+@media (min-width: 1200px){ .auth-logo { width: 260px; margin-bottom:40px; } }

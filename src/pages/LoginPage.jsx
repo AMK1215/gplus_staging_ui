@@ -50,7 +50,9 @@ const LoginPage = () => {
   return (
     <div className="auth-bg">
       <form className="auth-card" onSubmit={handleLogin}>
-        <div className="auth-logo">LOGO</div>
+      <div className="auth-logo">
+          <img src="/assets/logo.png" alt="My App Logo" />
+      </div>
         {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
         <div className="auth-input-group">
           <span className="auth-icon"><i className="fas fa-user"></i></span>
