@@ -17,7 +17,7 @@ const TopBar = () => {
       <div className="topbar-2line">
         <div className="topbar-row topbar-row-1">
           <img src={logo} alt="Logo" className="topbar-logo" />
-          <span className="topbar-appname">GSPLUS Staging UI</span>
+          <span className="topbar-appname">Money King</span>
           <span className="balance-box">
             <i className="fas fa-coins text-warning me-1"></i>
             {balance.toLocaleString()} MMK
@@ -31,11 +31,11 @@ const TopBar = () => {
         </div>
         <div className="topbar-row topbar-row-2">
           <div className="topbar-row2-right">
-            <span className="welcome-text">
+            {/* <span className="welcome-text">
               Welcome <span className="text-warning">{username}</span>
-            </span>
+            </span> */}
             <button className="btn btn-outline-warning btn-sm topbar-btn">
-              <i className="fas fa-user me-1"></i>PROFILE
+              <i className="fas fa-user me-1"></i>
             </button>
             <button className="btn btn-outline-warning btn-sm topbar-btn">
               <i className="fas fa-bell"></i>
@@ -47,7 +47,7 @@ const TopBar = () => {
               className="btn btn-outline-warning btn-sm topbar-btn"
               onClick={logout}
             >
-              <i className="fas fa-sign-out-alt me-1"></i>LOGOUT
+              <i className="fas fa-sign-out-alt me-1"></i>
             </button>
           </div>
         </div>
