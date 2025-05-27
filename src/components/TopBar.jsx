@@ -28,11 +28,11 @@ const TopBar = () => {
               className="btn btn-outline-warning btn-sm topbar-btn"
               onClick={logout}
             >
-              <i className="fas fa-sign-out-alt me-1"></i>LOGOUT
+              <i className="fas fa-sign-out-alt me-1"></i>
             </button>
           )}
           <span className="welcome-text">
-            Welcome{' '}
+            {' '}
             <span className="text-warning">
               {isLoggedIn ? user?.username : 'Guest'}
             </span>
@@ -44,7 +44,7 @@ const TopBar = () => {
           {isLoggedIn && (
             <>
               <button className="btn btn-outline-warning btn-sm topbar-btn">
-                <i className="fas fa-user me-1"></i>PROFILE
+                <i className="fas fa-user me-1"></i>
               </button>
               <button className="btn btn-outline-warning btn-sm topbar-btn">
                 <i className="fas fa-bell"></i>
