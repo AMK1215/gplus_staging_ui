@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './LoginRegister.css';
 import BASE_URL from '../hooks/baseURL';
 import { AuthContext } from '../contexts/AuthContext';
+import logo from '../assets/logo/logo.png';
+
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -51,9 +53,7 @@ const LoginPage = () => {
     <div className="auth-bg">
       <form className="auth-card" onSubmit={handleLogin}>
       <div className="auth-logo">
-        <img
-   src={'../assets/logo/logo.png'}
-    alt="Logo"/>
+        <img src="/assets/logo/logo.png" alt="Main Logo" />
       </div>
         {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
         <div className="auth-input-group">
