@@ -1,18 +1,24 @@
+/* 1. box-sizing reset for predictable sizing */
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* 2. your root & link/button styles */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -21,20 +27,6 @@ a {
 a:hover {
   color: #535bf2;
 }
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,6 +46,47 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* 3. fluid typography */
+h1 {
+  /* scales between 2rem on small screens and 3.2rem on large ones */
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+}
+
+/* 4. make media (images/videos) responsive */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 5. the wrapper/container */
+.container {
+  width: 100%;
+  max-width: 1200px;    /* limit width on large screens */
+  margin: 0 auto;       /* center horizontally */
+  padding: 0 1rem;      /* breathing room on mobile */
+}
+
+/* 6. body flex settings: column on mobile, row on desktop */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 1rem 0;
+}
+
+/* Desktop layout: switch to row if you need side-by-side panels */
+@media (min-width: 768px) {
+  body {
+    flex-direction: row;
+    place-items: center; /* vertical centering if row layout */
+  }
+}
+
+/* 7. light-mode overrides */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

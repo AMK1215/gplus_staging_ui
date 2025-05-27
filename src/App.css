@@ -1,18 +1,49 @@
-body, #root {
-  background: #181818 !important;
+/* 1. box-sizing reset */
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* 2. root styles */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;         /* stack on mobile */
+  align-items: center;
+  width: 100%;
   min-height: 100vh;
+  background: #181818;            /* unified background */
+  color: #ffffff;
 }
 
 #root {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 1280px;              /* constrain on large screens */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;                  /* mobile padding */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #181818;            /* reinforce background */
 }
 
+/* 3. breakpoint for desktop/tablet */
+@media (min-width: 768px) {
+  body {
+    flex-direction: row;          /* side-by-side if you ever split panels */
+  }
+  #root {
+    padding: 2rem;                /* more breathing room */
+  }
+}
+
+/* 4. logo */
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: clamp(4rem, 15vw, 6rem);
+  padding: clamp(1rem, 5vw, 1.5rem);
   will-change: filter;
   transition: filter 300ms;
 }
@@ -23,47 +54,47 @@ body, #root {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* 5. spin animation */
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from   { transform: rotate(0); }
+  to     { transform: rotate(360deg); }
 }
-
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
 
+/* 6. cards & docs link */
 .card {
   padding: 2em;
 }
-
 .read-the-docs {
   color: #888;
 }
 
+/* 7. game container */
 .game-container {
-  min-height: 100vh;
+  flex: 1;                        /* allow to grow */
   background-color: #1a1a1a;
   color: #ffffff;
+  padding: 1rem 0;                /* vertical padding */
 }
 
+/* 8. navbar */
 .navbar {
+  width: 100%;
   background-color: #2d2d2d !important;
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-
 .navbar-brand {
   color: #ffffff !important;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
+/* 9. balance box */
 .balance-box {
   background-color: #3d3d3d;
   padding: 0.5rem 1rem;
@@ -71,83 +102,72 @@ body, #root {
   color: #ffffff;
 }
 
+/* 10. sidebar */
 .sidebar-menu {
   background-color: #2d2d2d;
   border-radius: 10px;
   padding: 1rem;
   height: calc(100vh - 100px);
+  overflow-y: auto;
 }
-
 .menu-header {
-  padding: 1rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #3d3d3d;
 }
-
 .menu-header h5 {
   color: #ffffff;
   margin: 0;
 }
-
 .menu-items {
-  padding: 1rem 0;
+  padding-top: 1rem;
 }
-
 .menu-item {
   display: block;
   padding: 0.8rem 1rem;
   color: #b3b3b3;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   border-radius: 5px;
   margin-bottom: 0.5rem;
 }
-
 .menu-item:hover {
   background-color: #3d3d3d;
   color: #ffffff;
 }
-
 .menu-item.active {
   background-color: #4a4a4a;
   color: #ffffff;
 }
 
+/* 11. game grid & cards */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
 }
-
 .game-card {
   background-color: #2d2d2d;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
-
 .game-card:hover {
   transform: translateY(-5px);
 }
-
 .game-image {
   position: relative;
   height: 200px;
   overflow: hidden;
 }
-
 .game-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .game-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -155,14 +175,14 @@ body, #root {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-
 .game-card:hover .game-overlay {
   opacity: 1;
 }
 
+/* 12. buttons */
 .btn-play {
   background-color: #007bff;
-  color: white;
+  color: #fff;
   border: none;
   width: 50px;
   height: 50px;
@@ -170,42 +190,52 @@ body, #root {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
-
 .btn-play:hover {
   background-color: #0056b3;
   transform: scale(1.1);
 }
-
-.game-info {
-  padding: 1rem;
-}
-
-.game-info h5 {
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-}
-
-.game-meta {
-  display: flex;
-  justify-content: space-between;
-  color: #b3b3b3;
-  font-size: 0.9rem;
-}
-
 .btn-primary {
   background-color: #007bff;
   border: none;
   padding: 0.5rem 1.5rem;
 }
-
 .btn-outline-light {
-  border-color: #ffffff;
+  border: 1px solid #ffffff;
   color: #ffffff;
 }
-
 .btn-outline-light:hover {
   background-color: #ffffff;
   color: #2d2d2d;
+}
+
+/* 13. light-mode override */
+@media (prefers-color-scheme: light) {
+  body, #root {
+    background: #f9f9f9;
+    color: #213547;
+  }
+  .navbar {
+    background-color: #ececec !important;
+  }
+  .sidebar-menu, .game-card {
+    background-color: #fff;
+    color: #213547;
+  }
+  .menu-item {
+    color: #555;
+  }
+  .menu-item:hover, .menu-item.active {
+    background-color: #ddd;
+    color: #213547;
+  }
+  .balance-box {
+    background-color: #eee;
+    color: #213547;
+  }
+  .btn-play {
+    background-color: #61dafb;
+    color: #213547;
+  }
 }
