@@ -51,18 +51,7 @@ const LoginPage = () => {
 
   return (
     <div className="auth-bg">
-      <div className="casino-sparkle">
-  {Array.from({ length: 18 }).map((_, i) => (
-    <span
-      key={i}
-      style={{
-        left: `${Math.random() * 100}vw`,
-        top: `${Math.random() * 100}vh`,
-        animationDelay: `${Math.random() * 4}s`
-       }}
-      />
-     ))}
-      </div>
+      
 
       <form className="auth-card" onSubmit={handleLogin}>
       <div className="auth-logo">
@@ -104,6 +93,18 @@ const LoginPage = () => {
         >
           စာရင်းသွင်းမည်
         </button>
+        <div className="casino-sparkle">
+  {Array.from({ length: 18 }).map((_, i) => (
+    <span
+      key={i}
+      style={{
+        left: `${Math.random() * 100}vw`,
+        top: `${Math.random() * 100}vh`,
+        animationDelay: `${Math.random() * 4}s`
+       }}
+      />
+     ))}
+      </div>
       </form>
     </div>
   );
