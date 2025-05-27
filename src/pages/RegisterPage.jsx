@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginRegister.css';
-import logo from '../assets/logo/slot logo.png'; // Use your logo path
+import logo from '../assets/logo/logo.png'; // Use your logo path
 
 const RegisterPage = () => {
   const [phone, setPhone] = useState('');
