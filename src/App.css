@@ -1,10 +1,75 @@
+/* 0. Casino Animated Background & Sparkle Layer */
+.casino-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
+  pointer-events: none;
+  background: #181313;
+}
+.casino-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse at 50% 40%, #221d11 0%, #191108 70%, #000 100%);
+  opacity: 0.97;
+  pointer-events: none;
+}
+.casino-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    repeating-radial-gradient(circle at 60% 30%, rgba(255,215,0,0.06) 0, rgba(255,215,0,0.03) 70%, transparent 90%),
+    repeating-radial-gradient(circle at 40% 70%, rgba(255,215,0,0.04) 0, rgba(255,215,0,0.01) 70%, transparent 90%);
+  mix-blend-mode: lighten;
+  animation: casinoLightMove 7s linear infinite;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@keyframes casinoLightMove {
+  0% { background-position: 60% 20%, 40% 80%; }
+  100% { background-position: 75% 55%, 25% 30%; }
+}
+
+.casino-sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 3;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  opacity: 0.10;
+}
+.casino-sparkle span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ffd700;
+  opacity: 0.8;
+  animation: sparkleDown 4s linear infinite;
+}
+@keyframes sparkleDown {
+  0% { transform: translateY(-10vh) scale(1); opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(105vh) scale(0.7); opacity: 0; }
+}
+
+/* 0b. Main content should sit above background */
+.container-fluid, .main-app, .App, #root > div {
+  position: relative;
+  z-index: 10;
+}
+
 /* 1. box-sizing reset */
-html {
-  box-sizing: border-box;
-}
-*, *::before, *::after {
-  box-sizing: inherit;
-}
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
 
 /* 2. root styles */
 body {
@@ -14,30 +79,26 @@ body {
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background: #181818;            /* unified background */
+  background: transparent !important;   /* let .casino-bg show through */
   color: #ffffff;
 }
 
 #root {
   width: 100%;
-  max-width: 1280px;              /* constrain on large screens */
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem;                  /* mobile padding */
+  padding: 1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #181818;            /* reinforce background */
+  background: transparent !important;
 }
 
 /* 3. breakpoint for desktop/tablet */
 @media (min-width: 768px) {
-  body {
-    flex-direction: row;          /* side-by-side if you ever split panels */
-  }
-  #root {
-    padding: 2rem;                /* more breathing room */
-  }
+  body { flex-direction: row; }
+  #root { padding: 2rem; }
 }
 
 /* 4. logo */
@@ -47,12 +108,8 @@ body {
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+.logo:hover { filter: drop-shadow(0 0 2em #646cffaa); }
+.logo.react:hover { filter: drop-shadow(0 0 2em #61dafbaa); }
 
 /* 5. spin animation */
 @keyframes logo-spin {
@@ -66,19 +123,15 @@ body {
 }
 
 /* 6. cards & docs link */
-.card {
-  padding: 2em;
-}
-.read-the-docs {
-  color: #888;
-}
+.card { padding: 2em; }
+.read-the-docs { color: #888; }
 
 /* 7. game container */
 .game-container {
-  flex: 1;                        /* allow to grow */
+  flex: 1;
   background-color: #1a1a1a;
   color: #ffffff;
-  padding: 1rem 0;                /* vertical padding */
+  padding: 1rem 0;
 }
 
 /* 8. navbar */
@@ -89,17 +142,25 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 .navbar-brand {
-  color: #ffffff !important;
+  color: #ffd700 !important;
   font-weight: bold;
   font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 6px #0007;
 }
 
 /* 9. balance box */
 .balance-box {
-  background-color: #3d3d3d;
+  background-color: #251a07;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
-  color: #ffffff;
+  border-radius: 8px;
+  color: #FFD700;
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  box-shadow: 0 1px 3px #0005;
 }
 
 /* 10. sidebar */
@@ -114,21 +175,18 @@ body {
   padding-bottom: 1rem;
   border-bottom: 1px solid #3d3d3d;
 }
-.menu-header h5 {
-  color: #ffffff;
-  margin: 0;
-}
-.menu-items {
-  padding-top: 1rem;
-}
+.menu-header h5 { color: #ffd700; margin: 0; }
+.menu-items { padding-top: 1rem; }
 .menu-item {
   display: block;
   padding: 0.8rem 1rem;
-  color: #b3b3b3;
+  color: #FFD700;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s, color 0.3s;
   border-radius: 5px;
   margin-bottom: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 .menu-item:hover {
   background-color: #3d3d3d;
@@ -150,11 +208,10 @@ body {
   background-color: #2d2d2d;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 8px #0002;
 }
-.game-card:hover {
-  transform: translateY(-5px);
-}
+.game-card:hover { transform: translateY(-5px); }
 .game-image {
   position: relative;
   height: 200px;
@@ -173,16 +230,14 @@ body {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s;
 }
-.game-card:hover .game-overlay {
-  opacity: 1;
-}
+.game-card:hover .game-overlay { opacity: 1; }
 
 /* 12. buttons */
 .btn-play {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #FFD700;
+  color: #1a1a1a;
   border: none;
   width: 50px;
   height: 50px;
@@ -190,30 +245,35 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s, background-color 0.3s;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 .btn-play:hover {
-  background-color: #0056b3;
+  background-color: #fff8c4;
+  color: #181313;
   transform: scale(1.1);
 }
 .btn-primary {
-  background-color: #007bff;
+  background-color: #FFD700;
+  color: #181313;
   border: none;
   padding: 0.5rem 1.5rem;
+  font-weight: 600;
 }
 .btn-outline-light {
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid #FFD700;
+  color: #FFD700;
 }
 .btn-outline-light:hover {
-  background-color: #ffffff;
-  color: #2d2d2d;
+  background-color: #FFD700;
+  color: #181313;
 }
 
 /* 13. light-mode override */
 @media (prefers-color-scheme: light) {
   body, #root {
-    background: #f9f9f9;
+    background: #f9f9f9 !important;
     color: #213547;
   }
   .navbar {
@@ -223,16 +283,14 @@ body {
     background-color: #fff;
     color: #213547;
   }
-  .menu-item {
-    color: #555;
-  }
+  .menu-item { color: #b49500; }
   .menu-item:hover, .menu-item.active {
-    background-color: #ddd;
-    color: #213547;
+    background-color: #ffd70022;
+    color: #444;
   }
   .balance-box {
-    background-color: #eee;
-    color: #213547;
+    background-color: #ffeea7;
+    color: #b49500;
   }
   .btn-play {
     background-color: #61dafb;
