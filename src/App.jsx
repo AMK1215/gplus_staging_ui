@@ -44,7 +44,7 @@ function App() {
       
 
       {/* <div className="main-app"> */}
-      <div className=".casino-bg" aria-hidden="true">
+      <div className="casino-bg" aria-hidden="true">
         {/* Animated cards */}
         <div className="casino-card" style={{ top: '30vh', animationDelay: '0s' }} />
         <div className="casino-card c2" />
