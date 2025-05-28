@@ -37,38 +37,24 @@ import ProtectedRoute from './routes/ProtectedRoute';
 // }
 
 // Main app content
-function Home() {
-  return (
-    <div>
-      <TopBar />
-      <div className="container-fluid mt-3">
-        <SubTopBar />
-        <Banner />
-        <Marquee />
-        <DailyBoard />
-        <MostPopular />
-        <BigWin />
-        <SlotGame />
-        <LiveCasinoGame />
-      </div>
-    </div>
-  );
-}
-
 function App() {
   return (
-    <div className="casino-bg">
-      <CasinoSparkle />
-      <Routes>
-        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
-        <Route path="/account/deposit" element={<ProtectedRoute><DepositPage /></ProtectedRoute>} />
-        <Route path="/account/withdrawl" element={<ProtectedRoute><WithdrawPage /></ProtectedRoute>} />
-        <Route path="/account/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-      </Routes>
-    </div>
+    <>
+      {/* Background and Sparkle are SIBLINGS, not WRAPPERS */}
+      <div className="casino-bg" aria-hidden="true"></div>
+      {/* <CasinoSparkle /> */}
+      <div className="main-app">
+        <Routes>
+          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
+          <Route path="/account/deposit" element={<ProtectedRoute><DepositPage /></ProtectedRoute>} />
+          <Route path="/account/withdrawl" element={<ProtectedRoute><WithdrawPage /></ProtectedRoute>} />
+          <Route path="/account/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
