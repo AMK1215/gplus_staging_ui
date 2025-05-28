@@ -16,7 +16,7 @@ html, body, #root {
 }
 
 
-#root {
+/* #root {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -26,7 +26,7 @@ html, body, #root {
   flex-direction: column;
   min-height: 100vh;
   background: transparent !important;
-}
+} */
 
 /* 3. breakpoint for desktop/tablet */
 @media (min-width: 768px) {
