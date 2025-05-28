@@ -41,7 +41,18 @@ function App() {
   return (
     <>
       {/* Background and Sparkle are SIBLINGS, not WRAPPERS */}
-      <div className="casino-bg" aria-hidden="true"></div>
+      <div className="casino-sparkle">
+  {Array.from({ length: 18 }).map((_, i) => (
+    <span
+      key={i}
+      style={{
+        left: `${Math.random() * 100}vw`,
+        top: `${Math.random() * 100}vh`,
+        animationDelay: `${Math.random() * 4}s`
+       }}
+      />
+     ))}
+      </div>
       {/* <CasinoSparkle /> */}
       <div className="main-app">
         <Routes>

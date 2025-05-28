@@ -93,7 +93,7 @@ const LoginPage = () => {
         >
           စာရင်းသွင်းမည်
         </button>
-        <div className="casino-sparkle">
+        {/* <div className="casino-sparkle">
   {Array.from({ length: 18 }).map((_, i) => (
     <span
       key={i}
@@ -104,7 +104,7 @@ const LoginPage = () => {
        }}
       />
      ))}
-      </div>
+      </div> */}
       </form>
     </div>
   );

@@ -234,3 +234,36 @@ body {
     color: #213547;
   }
 }
+.casino-sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 3;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  opacity: 0.12;
+}
+
+.casino-sparkle span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ffd700;
+  opacity: 0.8;
+  animation: sparkleDown 4s linear infinite;
+}
+
+@keyframes sparkleDown {
+  0% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) scale(0.7);
+    opacity: 0;
+  }
+}

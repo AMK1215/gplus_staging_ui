@@ -18,7 +18,7 @@ const RegisterPage = () => {
 
   return (
     <div className="auth-bg">
-      <div className="casino-sparkle">
+      {/* <div className="casino-sparkle">
   {Array.from({ length: 18 }).map((_, i) => (
     <span
       key={i}
@@ -29,7 +29,7 @@ const RegisterPage = () => {
       }}
     />
   ))}
-</div>
+</div> */}
 
       <form className="auth-card animated-fade-in" onSubmit={handleRegister}>
         <div className="auth-logo">
