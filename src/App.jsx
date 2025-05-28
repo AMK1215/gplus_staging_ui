@@ -18,25 +18,25 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './routes/ProtectedRoute';
 
-// Sparkle component
-// function CasinoSparkle() {
-//   return (
-//     <div className="casino-sparkle">
-//       {Array.from({ length: 25 }).map((_, i) => (
-//         <span
-//           key={i}
-//           style={{
-//             left: `${Math.random() * 100}vw`,
-//             top: `${Math.random() * 100}vh`,
-//             animationDelay: `${Math.random() * 4}s`
-//           }}
-//         />
-//       ))}
-//     </div>
-//   );
-// }
+// Main app content (add this back!)
+function Home() {
+  return (
+    <div>
+      <TopBar />
+      <div className="container-fluid mt-3">
+        <SubTopBar />
+        <Banner />
+        <Marquee />
+        <DailyBoard />
+        <MostPopular />
+        <BigWin />
+        <SlotGame />
+        <LiveCasinoGame />
+      </div>
+    </div>
+  );
+}
 
-// Main app content
 function App() {
   return (
     <>
