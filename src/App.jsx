@@ -41,6 +41,9 @@ function App() {
   return (
     <>
       {/* Casino animation background: pure CSS, no images */}
+      
+
+      <div className="main-app">
       <div className="casino-bg" aria-hidden="true">
         {/* Animated cards */}
         <div className="casino-card" style={{ top: '30vh', animationDelay: '0s' }} />
@@ -58,8 +61,6 @@ function App() {
         <div className="casino-sparkle s2" />
         <div className="casino-sparkle s3" />
       </div>
-
-      <div className="main-app">
         <Routes>
           <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
           <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
