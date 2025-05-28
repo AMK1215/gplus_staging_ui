@@ -1,101 +1,140 @@
 /* 1. box-sizing reset for predictable sizing */
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
-/* 2. your root & link/button styles */
+/* 2. root & base styles */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: dark light;
+  color: #fff;
+  background: transparent !important;  /* Allow casino-bg to show through */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* 3. links and buttons - classic casino color tweaks */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #FFD700;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 a:hover {
-  color: #535bf2;
+  color: #fff3a0;
 }
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid #FFD700;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgba(24,19,64,0.98); /* subtle deep blue for casino */
+  color: #FFD700;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background 0.2s, color 0.2s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #fff3a0;
+  background-color: #FFD700;
+  color: #181313;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* 3. fluid typography */
+/* 4. fluid typography */
 h1 {
-  /* scales between 2rem on small screens and 3.2rem on large ones */
   font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1.1;
 }
 
-/* 4. make media (images/videos) responsive */
+/* 5. responsive media */
 img, video, iframe {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
-/* 5. the wrapper/container */
-.container {
+/* 6. content wrapper/container */
+.container, .container-fluid {
   width: 100%;
-  max-width: 1200px;    /* limit width on large screens */
-  margin: 0 auto;       /* center horizontally */
-  padding: 0 1rem;      /* breathing room on mobile */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
-/* 6. body flex settings: column on mobile, row on desktop */
+/* 7. body layout: column mobile, row desktop */
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  align-items: stretch;
+  width: 100vw;
   min-height: 100vh;
-  padding: 1rem 0;
+  background: transparent !important; /* Let casino-bg shine through */
+  color: #fff;
+  overflow-x: hidden;
+}
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-/* Desktop layout: switch to row if you need side-by-side panels */
-@media (min-width: 768px) {
-  body {
-    flex-direction: row;
-    place-items: center; /* vertical centering if row layout */
+@media (min-width: 900px) {
+  .container, .container-fluid {
+    padding: 0 2rem;
+    max-width: 1280px;
   }
 }
 
-/* 7. light-mode overrides */
+@media (max-width: 600px) {
+  .container, .container-fluid {
+    padding: 0 0.5rem;
+    max-width: 100vw;
+  }
+}
+
+/* 8. light-mode overrides */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background: transparent !important;
+  }
+  body, #root {
+    color: #213547;
+    background: transparent !important;
+  }
+  a {
+    color: #b49500;
   }
   a:hover {
-    color: #747bff;
+    color: #FFD700;
   }
   button {
     background-color: #f9f9f9;
+    color: #213547;
+    border-color: #FFD700;
+  }
+  button:hover {
+    background-color: #FFD700;
+    color: #213547;
+    border-color: #b49500;
   }
 }
