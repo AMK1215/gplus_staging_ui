@@ -19,27 +19,27 @@ import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './routes/ProtectedRoute';
 
 // Sparkle component
-// function CasinoSparkle() {
-//   return (
-//     <div className="casino-sparkle">
-//       {Array.from({ length: 25 }).map((_, i) => (
-//         <span
-//           key={i}
-//           style={{
-//             left: `${Math.random() * 100}vw`,
-//             top: `${Math.random() * 100}vh`,
-//             animationDelay: `${Math.random() * 4}s`
-//           }}
-//         />
-//       ))}
-//     </div>
-//   );
-// }
+function CasinoSparkle() {
+  return (
+    <div className="casino-sparkle">
+      {Array.from({ length: 25 }).map((_, i) => (
+        <span
+          key={i}
+          style={{
+            left: `${Math.random() * 100}vw`,
+            top: `${Math.random() * 100}vh`,
+            animationDelay: `${Math.random() * 4}s`
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 // Main app content
 function Home() {
   return (
-    <div>
+    <>
       <TopBar />
       <div className="container-fluid mt-3">
         <SubTopBar />
@@ -51,24 +51,27 @@ function Home() {
         <SlotGame />
         <LiveCasinoGame />
       </div>
-    </div>
+    </>
   );
 }
 
 function App() {
   return (
-    <div className="casino-bg">
+    <>
+      <div className="casino-bg" aria-hidden="true"></div>
       <CasinoSparkle />
-      <Routes>
-        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
-        <Route path="/account/deposit" element={<ProtectedRoute><DepositPage /></ProtectedRoute>} />
-        <Route path="/account/withdrawl" element={<ProtectedRoute><WithdrawPage /></ProtectedRoute>} />
-        <Route path="/account/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-      </Routes>
-    </div>
+      <div className="main-app">
+        <Routes>
+          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
+          <Route path="/account/deposit" element={<ProtectedRoute><DepositPage /></ProtectedRoute>} />
+          <Route path="/account/withdrawl" element={<ProtectedRoute><WithdrawPage /></ProtectedRoute>} />
+          <Route path="/account/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
