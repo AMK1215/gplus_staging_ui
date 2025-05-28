@@ -16,7 +16,7 @@
 }
 
 .topbar-logo {
-  height: 180px;                /* 2x height */
+  height: 120px;                /* 2x height */
   width: auto;
   max-width: 300px;             /* 2x max-width */
   object-fit: contain;
@@ -208,6 +208,6 @@
   .lang-dropdown-item {
     font-size: 0.6rem;
     padding: 0.18rem 0.5rem;
-    gap: 0.35em;d
+    gap: 0.35em;
   }
 }
