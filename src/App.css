@@ -1,40 +1,30 @@
-/* 0b. Main content should sit above background */
-.container-fluid, .main-app, .App,  #root > div {
+/* === 0. LAYOUT BASE === */
+/* Main content above background */
+.container-fluid, .main-app, .App, #root > div {
   position: relative;
   z-index: 10;
 }
 
+/* Global box model and reset */
 html, body, #root {
-  width: 100vw !important;
-  min-height: 100vh !important;
-  height: 100vh !important;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
   margin: 0;
   padding: 0;
   position: relative;
-  background: transparent !important;
+  background: transparent;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-
-/* #root {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: transparent !important;
-} */
-
-/* 3. breakpoint for desktop/tablet */
+/* 3. Desktop/tablet breakpoints */
 @media (min-width: 768px) {
   body { flex-direction: row; }
   #root { padding: 2rem; }
 }
 
-/* 4. logo */
+/* 4. Logo styles */
 .logo {
   height: clamp(4rem, 15vw, 6rem);
   padding: clamp(1rem, 5vw, 1.5rem);
@@ -44,10 +34,10 @@ html, body, #root {
 .logo:hover { filter: drop-shadow(0 0 2em #646cffaa); }
 .logo.react:hover { filter: drop-shadow(0 0 2em #61dafbaa); }
 
-/* 5. spin animation */
+/* 5. Logo spin animation */
 @keyframes logo-spin {
-  from   { transform: rotate(0); }
-  to     { transform: rotate(360deg); }
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
 }
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
@@ -55,11 +45,11 @@ html, body, #root {
   }
 }
 
-/* 6. cards & docs link */
+/* 6. Cards & docs link */
 .card { padding: 2em; }
 .read-the-docs { color: #888; }
 
-/* 7. game container */
+/* 7. Game container */
 .game-container {
   flex: 1;
   background-color: #1a1a1a;
@@ -67,22 +57,22 @@ html, body, #root {
   padding: 1rem 0;
 }
 
-/* 8. navbar */
+/* 8. Navbar */
 .navbar {
   width: 100%;
-  background-color: #2d2d2d !important;
+  background-color: #2d2d2d;
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 .navbar-brand {
-  color: #ffd700 !important;
+  color: #ffd700;
   font-weight: bold;
   font-size: 1.5rem;
   letter-spacing: 1px;
   text-shadow: 0 1px 6px #0007;
 }
 
-/* 9. balance box */
+/* 9. Balance box */
 .balance-box {
   background-color: #251a07;
   padding: 0.5rem 1rem;
@@ -96,7 +86,7 @@ html, body, #root {
   box-shadow: 0 1px 3px #0005;
 }
 
-/* 10. sidebar */
+/* 10. Sidebar */
 .sidebar-menu {
   background-color: #2d2d2d;
   border-radius: 10px;
@@ -130,7 +120,7 @@ html, body, #root {
   color: #ffffff;
 }
 
-/* 11. game grid & cards */
+/* 11. Game grid & cards */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -167,7 +157,7 @@ html, body, #root {
 }
 .game-card:hover .game-overlay { opacity: 1; }
 
-/* 12. buttons */
+/* 12. Buttons */
 .btn-play {
   background-color: #FFD700;
   color: #1a1a1a;
@@ -203,14 +193,14 @@ html, body, #root {
   color: #181313;
 }
 
-/* 13. light-mode override */
+/* 13. Light mode override */
 @media (prefers-color-scheme: light) {
   body, #root {
-    background: #f9f9f9 !important;
+    background: #f9f9f9;
     color: #213547;
   }
   .navbar {
-    background-color: #ececec !important;
+    background-color: #ececec;
   }
   .sidebar-menu, .game-card {
     background-color: #fff;
@@ -232,8 +222,6 @@ html, body, #root {
 }
 
 /* === CASINO ANIMATION BACKGROUND === */
-
-/* === PURE CSS CASINO ANIMATION BACKGROUND === */
 .casino-bg {
   position: fixed;
   top: 0; left: 0;
@@ -243,8 +231,7 @@ html, body, #root {
   background: linear-gradient(135deg, #13062f 0%, #440e26 100%);
   overflow: hidden;
 }
-
-/* ANIMATED CARDS (rectangles with border & shadow) */
+/* Animated cards */
 .casino-card {
   position: absolute;
   width: 54px; height: 80px;
@@ -256,7 +243,6 @@ html, body, #root {
   animation: run-card 13s linear infinite;
   will-change: transform, opacity;
 }
-
 .casino-card.c2 {
   width: 62px; height: 92px;
   top: 20vh;
@@ -280,7 +266,6 @@ html, body, #root {
   animation-duration: 19s;
   animation-delay: 7s;
 }
-
 @keyframes run-card {
   0%   { left: -70px; transform: rotate(-22deg) scale(0.95);}
   12%  { opacity: 0.9;}
@@ -289,8 +274,7 @@ html, body, #root {
   74%  { transform: rotate(-13deg) scale(1);}
   100% { left: 110vw; opacity: 0.07; transform: rotate(21deg) scale(1.10);}
 }
-
-/* CASINO CHIPS (colored discs with stripes) */
+/* Casino chips */
 .casino-chip {
   position: absolute;
   width: 40px; height: 40px;
@@ -301,7 +285,6 @@ html, body, #root {
   border: 4px solid #fff;
   animation: chip-spin 10s linear infinite;
 }
-
 .casino-chip.chip2 {
   left: 55vw; top: 60vh;
   width: 48px; height: 48px;
@@ -320,14 +303,12 @@ html, body, #root {
   animation-delay: 1s;
   opacity: 0.6;
 }
-
 @keyframes chip-spin {
   0%   { transform: rotate(0deg) scale(1) translateY(0);}
   70%  { transform: rotate(360deg) scale(1.1) translateY(-20px);}
   100% { transform: rotate(720deg) scale(1) translateY(0);}
 }
-
-/* CASINO SPARKLES */
+/* Casino sparkles */
 .casino-sparkle {
   position: absolute;
   width: 18px; height: 18px;
@@ -357,4 +338,3 @@ html, body, #root {
   75%  { opacity: 0.9; transform: scale(0.8);}
   100% { opacity: 0.1; transform: scale(0.5);}
 }
-
