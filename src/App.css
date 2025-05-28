@@ -17,7 +17,7 @@ body {
   width: 100%;
   min-height: 100vh;
   background: transparent !important;   /* let .casino-bg show through */
-  color: #ffffff;
+  color: hsl(0, 86%, 48%);
 }
 
 #root {
