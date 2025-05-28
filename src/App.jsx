@@ -43,7 +43,7 @@ function App() {
       {/* Casino animation background: pure CSS, no images */}
       
 
-      {/* <div className="main-app"> */}
+      <div className="main-app">
       <div className="casino-bg" aria-hidden="true">
         {/* Animated cards */}
         <div className="casino-card" style={{ top: '30vh', animationDelay: '0s' }} />
@@ -70,7 +70,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
         </Routes>
-      {/* </div> */}
+      </div>
     </>
   );
 }
