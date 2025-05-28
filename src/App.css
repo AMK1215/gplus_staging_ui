@@ -1,4 +1,3 @@
-/* === 0. Casino Animated Background & Sparkle Layer === */
 .casino-bg {
   position: fixed;
   inset: 0;
@@ -8,17 +7,15 @@
   background: #181313;
   pointer-events: none;
 }
-
 .casino-bg::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
   background: radial-gradient(ellipse at 50% 40%, #221d11 0%, #191108 70%, #000 100%);
-  opacity: 0.6;  /* Lowered for more readable content */
+  opacity: 0.6;
   pointer-events: none;
 }
-
 .casino-bg::after {
   content: "";
   position: absolute;
@@ -61,13 +58,13 @@
   100% { transform: translateY(105vh) scale(0.7); opacity: 0; }
 }
 
-/* === 1. Main App Content Should Sit Above Background === */
-.main-app, .container-fluid, .App, #root > div {
+/* Foreground content always above bg */
+.main-app, .container-fluid, .card {
   position: relative;
   z-index: 10;
 }
 
-/* === 2. Basic Resets & Structure === */
+/* Layout & form styles */
 html { box-sizing: border-box; }
 *, *::before, *::after { box-sizing: inherit; }
 
@@ -75,7 +72,7 @@ body {
   margin: 0;
   font-family: 'Segoe UI', 'Arial', sans-serif;
   background: transparent !important;
-  color: #ffffff;
+  color: #fff;
   min-height: 100vh;
 }
 
@@ -88,39 +85,41 @@ body {
   background: transparent !important;
 }
 
-/* Responsive padding for larger screens */
-@media (min-width: 768px) {
-  .main-app { padding: 2rem 0; }
+.container-fluid {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* === 3. Example Login Box === */
-.login-box, .auth-card, .card {
-  background: rgba(28, 22, 15, 0.95);
+.login-box, .card {
+  background: rgba(28, 22, 15, 0.97);
   color: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 36px rgba(0,0,0,0.45);
   padding: 2.5rem 2rem 2rem 2rem;
   max-width: 350px;
+  width: 100%;
   margin: 2rem auto;
   border: 1px solid #aa8700;
   z-index: 20;
 }
-
-.login-box h1, .auth-card h1 {
+.login-box h1, .card h1 {
   font-size: 2rem;
   font-weight: bold;
   color: #ffd700;
   margin-bottom: 1.5rem;
   text-shadow: 0 1px 6px #0007;
 }
-
 .login-box label {
   display: block;
   margin-bottom: 0.25rem;
   color: #ffd700;
   font-weight: 500;
 }
-
 .login-box input[type="text"],
 .login-box input[type="password"] {
   width: 100%;
@@ -138,8 +137,7 @@ body {
 .login-box input[type="password"]:focus {
   border-color: #ffd700;
 }
-
-.login-box .btn-primary {
+.btn-primary {
   display: block;
   width: 100%;
   background: linear-gradient(90deg, #ffd700 70%, #fff3a0 100%);
@@ -154,48 +152,36 @@ body {
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
-.login-box .btn-primary:hover {
+.btn-primary:hover {
   background: linear-gradient(90deg, #fff3a0 40%, #ffd700 100%);
   color: #553d00;
 }
-
-.login-box .btn-outline-light {
-  width: 100%;
-  background: transparent;
+.login-link {
+  display: block;
+  margin-top: 1rem;
   color: #ffd700;
-  border: 1px solid #ffd700;
-  font-weight: 500;
-  border-radius: 6px;
-  padding: 0.85rem 0;
-  transition: background 0.2s, color 0.2s;
-  cursor: pointer;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 0.95rem;
 }
-.login-box .btn-outline-light:hover {
-  background: #ffd70022;
-  color: #fff;
+.login-link:hover {
+  color: #fff3a0;
 }
 
 /* Responsive login box on small screens */
 @media (max-width: 400px) {
-  .login-box, .auth-card, .card {
+  .login-box, .card {
     padding: 1.2rem 0.5rem;
     font-size: 0.96rem;
   }
 }
 
-/* === 4. Utility Classes === */
-.text-center { text-align: center; }
-.mt-2 { margin-top: 0.5rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.bold { font-weight: bold; }
-.gold { color: #ffd700; }
-
-/* === 5. Light Mode Support === */
+/* Light mode support */
 @media (prefers-color-scheme: light) {
   .casino-bg {
     background: #f5f1e3;
   }
-  .login-box, .auth-card, .card {
+  .login-box, .card {
     background: #fffde9;
     color: #332200;
     border: 1px solid #ffe066;
@@ -211,8 +197,7 @@ body {
     background: #fffde9;
     color: #ba9e00;
   }
-  .btn-outline-light:hover {
-    background: #ffd70044;
+  .login-link:hover {
     color: #ba9e00;
   }
 }
