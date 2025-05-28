@@ -1,6 +1,6 @@
 /* === 0. LAYOUT BASE === */
 /* Main content above background */
-.container-fluid, .main-app, .casino-bg, .App, #root > div {
+.container-fluid, .casino-bg, .App, #root > div {
   position: relative;
   z-index: 10;
 }
