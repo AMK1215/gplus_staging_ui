@@ -14,8 +14,8 @@ import Games from './pages/Games';
 import DepositPage from './pages/DepositPage';
 import WithdrawPage from './pages/WithdrawPage';
 import ProfilePage from './pages/ProfilePage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+// import LoginPage from './pages/LoginPage';
+// import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './routes/ProtectedRoute';
 
 // Main app content (add this back!)
@@ -24,9 +24,9 @@ function Home() {
     <div>
       <TopBar />
       <div className="container-fluid mt-3">
-        <SubTopBar />
         <Banner />
         <Marquee />
+        <SubTopBar />
         <DailyBoard />
         <MostPopular />
         <BigWin />
@@ -50,8 +50,8 @@ function App() {
           <Route path="/account/deposit" element={<ProtectedRoute><DepositPage /></ProtectedRoute>} />
           <Route path="/account/withdrawl" element={<ProtectedRoute><WithdrawPage /></ProtectedRoute>} />
           <Route path="/account/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          {/* <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} /> */}
         </Routes>
       </div>
     </>
