@@ -14,11 +14,6 @@ import Games from './pages/Games';
 import DepositPage from './pages/DepositPage';
 import WithdrawPage from './pages/WithdrawPage';
 import ProfilePage from './pages/ProfilePage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import ProtectedRoute from './routes/ProtectedRoute';
-
-// Sparkle component
 function CasinoSparkle() {
   return (
     <div className="casino-sparkle">
@@ -35,6 +30,12 @@ function CasinoSparkle() {
     </div>
   );
 }
+
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import ProtectedRoute from './routes/ProtectedRoute';
+
+// Sparkle component
 
 // Main app content
 function Home() {
