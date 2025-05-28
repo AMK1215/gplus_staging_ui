@@ -1,5 +1,5 @@
 /* 0b. Main content should sit above background */
-.container-fluid,  .App, .casino-bg, #root > div {
+.container-fluid, .main-app, .App,  #root > div {
   position: relative;
   z-index: 10;
 }
