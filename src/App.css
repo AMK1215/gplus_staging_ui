@@ -4,21 +4,17 @@
   z-index: 10;
 }
 
-/* 1. box-sizing reset */
-html { box-sizing: border-box; }
-*, *::before, *::after { box-sizing: inherit; }
-
-/* 2. root styles */
-body {
+html, body, #root {
+  width: 100vw !important;
+  min-height: 100vh !important;
+  height: 100vh !important;
   margin: 0;
-  display: flex;
-  flex-direction: column;         /* stack on mobile */
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  background: transparent !important;   /* let .casino-bg show through */
-  color: hsl(0, 86%, 48%);
+  padding: 0;
+  position: relative;
+  background: transparent !important;
+  overflow-x: hidden;
 }
+
 
 #root {
   width: 100%;
