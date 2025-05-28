@@ -37,7 +37,7 @@
   100% { background-position: 75% 55%, 25% 30%; }
 }
 
-.casino-sparkle {
+/* .casino-sparkle {
   position: fixed;
   pointer-events: none;
   z-index: 3;
@@ -69,7 +69,7 @@
     transform: translateY(105vh) scale(0.7);
     opacity: 0;
   }
-}
+} */
 
 /* 0b. Main content should sit above background */
 .container-fluid, .main-app, .App, #root > div {
