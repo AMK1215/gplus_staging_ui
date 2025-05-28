@@ -18,7 +18,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './routes/ProtectedRoute';
 
-// Main app content (add this back!)
+// Main app content
 function Home() {
   return (
     <div>
@@ -40,20 +40,14 @@ function Home() {
 function App() {
   return (
     <>
-      {/* Background and Sparkle are SIBLINGS, not WRAPPERS */}
-      <div className="casino-sparkle">
-  {Array.from({ length: 18 }).map((_, i) => (
-    <span
-      key={i}
-      style={{
-        left: `${Math.random() * 100}vw`,
-        top: `${Math.random() * 100}vh`,
-        animationDelay: `${Math.random() * 4}s`
-       }}
-      />
-     ))}
+      {/* Animated casino background */}
+      <div className="casino-bg" aria-hidden="true">
+        {/* Floating chips */}
+        <div className="casino-chip" style={{ left: '10vw', top: '70vh' }} />
+        <div className="casino-chip chip2" />
+        <div className="casino-chip chip3" />
       </div>
-      {/* <CasinoSparkle /> */}
+
       <div className="main-app">
         <Routes>
           <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />

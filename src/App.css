@@ -234,36 +234,64 @@ body {
     color: #213547;
   }
 }
-.casino-sparkle {
+
+/* === CASINO ANIMATION BACKGROUND === */
+
+.casino-bg {
   position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  z-index: 3;
-  left: 0; top: 0;
-  width: 100vw; height: 100vh;
+  background: linear-gradient(135deg, #1a0536 0%, #400e27 100%);
   overflow: hidden;
-  opacity: 0.12;
 }
 
-.casino-sparkle span {
+/* Sparkle/glow effect using keyframes */
+.casino-bg::before {
+  content: "";
   position: absolute;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: #ffd700;
-  opacity: 0.8;
-  animation: sparkleDown 4s linear infinite;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-radial-gradient(circle at 20% 30%, #ffd70088 0, #ffd70000 60%),
+              repeating-radial-gradient(circle at 70% 80%, #00fff788 0, #00fff700 70%);
+  opacity: 0.35;
+  animation: casino-glow 10s linear infinite alternate;
 }
 
-@keyframes sparkleDown {
-  0% {
-    transform: translateY(-10vh) scale(1);
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(105vh) scale(0.7);
-    opacity: 0;
-  }
+@keyframes casino-glow {
+  0%   { filter: blur(0px);}
+  100% { filter: blur(8px);}
+}
+
+/* Floating chips/cards */
+.casino-chip {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url('/chips/chip-red.png') no-repeat center/contain;
+  opacity: 0.85;
+  animation: float-chip 14s linear infinite;
+}
+
+.casino-chip.chip2 {
+  left: 60vw;
+  top: 80vh;
+  width: 65px;
+  animation-duration: 18s;
+  background-image: url('/chips/chip-blue.png');
+}
+
+.casino-chip.chip3 {
+  left: 90vw;
+  top: 30vh;
+  width: 40px;
+  animation-duration: 12s;
+  background-image: url('/chips/chip-green.png');
+}
+
+@keyframes float-chip {
+  0%   { transform: translateY(0) rotate(0deg);}
+  100% { transform: translateY(-95vh) rotate(360deg);}
 }

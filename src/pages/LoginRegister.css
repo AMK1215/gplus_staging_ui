@@ -48,7 +48,7 @@
 }
 
 /* OPTIONAL: Subtle falling gold specks (for more casino sparkle!) */
-.casino-sparkle {
+/* .casino-sparkle {
   position: fixed;
   pointer-events: none;
   z-index: 3;
@@ -80,7 +80,7 @@
     transform: translateY(105vh) scale(0.7);
     opacity: 0;
   }
-}
+} */
 
 /* Casino-style animated login/register */
 
