@@ -40,12 +40,23 @@ function Home() {
 function App() {
   return (
     <>
-      {/* Animated casino background */}
+      {/* Casino animation background: pure CSS, no images */}
       <div className="casino-bg" aria-hidden="true">
-        {/* Floating chips */}
-        <div className="casino-chip" style={{ left: '10vw', top: '70vh' }} />
+        {/* Animated cards */}
+        <div className="casino-card" style={{ top: '30vh', animationDelay: '0s' }} />
+        <div className="casino-card c2" />
+        <div className="casino-card c3" />
+        <div className="casino-card c4" />
+
+        {/* Animated chips */}
+        <div className="casino-chip" style={{ left: '24vw', top: '72vh', animationDelay: '0s' }} />
         <div className="casino-chip chip2" />
         <div className="casino-chip chip3" />
+
+        {/* Sparkles */}
+        <div className="casino-sparkle" />
+        <div className="casino-sparkle s2" />
+        <div className="casino-sparkle s3" />
       </div>
 
       <div className="main-app">
