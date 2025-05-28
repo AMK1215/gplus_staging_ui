@@ -14,23 +14,6 @@ import Games from './pages/Games';
 import DepositPage from './pages/DepositPage';
 import WithdrawPage from './pages/WithdrawPage';
 import ProfilePage from './pages/ProfilePage';
-function CasinoSparkle() {
-  return (
-    <div className="casino-sparkle">
-      {Array.from({ length: 25 }).map((_, i) => (
-        <span
-          key={i}
-          style={{
-            left: `${Math.random() * 100}vw`,
-            top: `${Math.random() * 100}vh`,
-            animationDelay: `${Math.random() * 4}s`
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './routes/ProtectedRoute';
